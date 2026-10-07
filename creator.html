@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Creator-Registrierung – TTS Deals</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="creator-body">
+  <div class="demo-banner" id="demoBanner" hidden>Demo-Modus: Daten werden nur in diesem Browser gespeichert.</div>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="logo" href="./"><span class="logo__mark">TTS</span>Deals <span class="logo__tag">Creator</span></a>
+      <a class="btn btn--ghost btn--sm" href="dashboard.html">Login</a>
+    </div>
+  </header>
+
+  <main class="wrap wrap--narrow">
+    <form class="panel" id="wizard" novalidate>
+      <div class="progress" id="progress" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="alert alert--error" id="error" role="alert" hidden></div>
+
+      <!-- Feld 1 -->
+      <section data-step="1">
+        <p class="step-label">Schritt 1 von 3</p>
+        <h1 class="q">Bist du offizieller TikTok Shop Creator?</h1>
+        <p class="q-sub">Die Plattform ist exklusiv für verifizierte TikTok Shop Creator.</p>
+        <div class="choice-grid">
+          <button type="button" class="choice" data-creator="yes">JA</button>
+          <button type="button" class="choice" data-creator="no">NEIN</button>
+        </div>
+      </section>
+
+      <!-- Abgelehnt -->
+      <section data-step="denied" hidden>
+        <div class="state-icon state-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg></div>
+        <h1 class="q">Nutzung leider nicht möglich</h1>
+        <p class="q-sub">Die Creator-Plattform steht ausschließlich offiziellen TikTok Shop Creators zur Verfügung. Sobald du freigeschaltet bist, kannst du dich hier registrieren.</p>
+        <div class="actions">
+          <a class="btn" href="./">Zum Schaufenster</a>
+          <button type="button" class="btn btn--ghost" data-back="1">Zurück</button>
+        </div>
+      </section>
+
+      <!-- Feld 2 -->
+      <section data-step="2" hidden>
+        <p class="step-label">Schritt 2 von 3</p>
+        <h1 class="q">Wie lautet dein TikTok-Username?</h1>
+        <p class="q-sub">Er wird deine Creator-ID auf der Plattform.</p>
+        <div class="field">
+          <label for="userId">TikTok-Username</label>
+          <div class="input-wrap">
+            <span class="pre">@</span>
+            <input class="input input--prefix" id="userId" name="userId" autocomplete="username" autocapitalize="off" spellcheck="false" placeholder="deinusername" maxlength="25" required>
+          </div>
+          <p class="hint">2–24 Zeichen: Buchstaben, Zahlen, Punkt und Unterstrich.</p>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn btn--ghost" data-back="1">Zurück</button>
+          <button type="button" class="btn btn--accent" id="toStep3">Weiter</button>
+        </div>
+      </section>
+
+      <!-- Feld 3 -->
+      <section data-step="3" hidden>
+        <p class="step-label">Schritt 3 von 3</p>
+        <h1 class="q">Kennst du deinen exakten Grenzsteuersatz?</h1>
+        <p class="q-sub">Damit berechnen wir automatisch den optimalen Schnäppchenpreis für deine Produkte.</p>
+        <div class="choice-grid">
+          <button type="button" class="choice" data-knows="yes">JA</button>
+          <button type="button" class="choice" data-knows="no">NEIN</button>
+        </div>
+
+        <div class="subpanel" id="rateYes" hidden>
+          <div class="field">
+            <label for="rate">Dein Grenzsteuersatz</label>
+            <div class="input-wrap">
+              <input class="input input--suffix" id="rate" type="number" inputmode="decimal" min="0" max="100" step="0.1" placeholder="z. B. 35">
+              <span class="suf">%</span>
+            </div>
+            <p class="hint">Gib den Wert in Prozent ein (0–100).</p>
+          </div>
+        </div>
+
+        <div class="subpanel" id="rateNo" hidden>
+          <p class="step-label">Geschätztes Gesamteinkommen</p>
+          <div class="choice-list">
+            <button type="button" class="choice choice--row" data-income="0.00">Unter 12.300 € <small>/ Jahr</small></button>
+            <button type="button" class="choice choice--row" data-income="0.30">15.000 € – 60.000 € <small>/ Jahr</small></button>
+            <button type="button" class="choice choice--row" data-income="0.42">Über 66.000 € <small>/ Jahr</small></button>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn btn--ghost" data-back="2">Zurück</button>
+          <button type="submit" class="btn btn--accent" id="submit">Registrierung absenden</button>
+        </div>
+      </section>
+
+      <!-- Erfolg -->
+      <section data-step="success" hidden>
+        <div class="state-icon state-icon--ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div>
+        <h1 class="q">Willkommen, <span id="okUser"></span>!</h1>
+        <p class="q-sub">Deine Registrierung ist gespeichert. Verbinde dich jetzt mit unserem Telegram-Bot, um Produkte direkt aus dem Chat hochzuladen.</p>
+
+        <a class="btn btn--accent btn--lg btn--block" id="telegramBtn" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3L18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg>
+          Mit Telegram verbinden
+        </a>
+
+        <ul class="summary">
+          <li><span>Creator-ID</span><b id="sumUser"></b></li>
+          <li><span>Hinterlegter Steuersatz</span><b id="sumRate"></b></li>
+        </ul>
+
+        <p class="step-label">Dein Creator-Key</p>
+        <div class="keybox">
+          <code id="creatorKey"></code>
+          <button type="button" class="btn btn--sm" id="copyKey">Kopieren</button>
+        </div>
+        <p class="hint small muted">Speichere diesen Key sicher. Du brauchst ihn, um dich im Web-Dashboard einzuloggen.</p>
+
+        <div class="actions">
+          <a class="btn" href="dashboard.html">Zum Web-Dashboard</a>
+        </div>
+      </section>
+    </form>
+  </main>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/onboarding.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Creator-Dashboard – TTS Deals</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="creator-body">
+  <div class="demo-banner" id="demoBanner" hidden>Demo-Modus: Daten werden nur in diesem Browser gespeichert.</div>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="logo" href="./"><span class="logo__mark">TTS</span>Deals <span class="logo__tag">Creator</span></a>
+      <button class="btn btn--ghost btn--sm" id="logout" type="button" hidden>Abmelden</button>
+    </div>
+  </header>
+
+  <main class="wrap wrap--narrow">
+    <!-- Login -->
+    <form class="panel" id="loginView" novalidate hidden>
+      <p class="step-label">Creator-Bereich</p>
+      <h1 class="q">Einloggen</h1>
+      <p class="q-sub">Melde dich mit deinem TikTok-Username und deinem Creator-Key aus der Registrierung an.</p>
+      <div class="alert alert--error" id="loginError" role="alert" hidden></div>
+      <div class="field">
+        <label for="loginUser">TikTok-Username</label>
+        <div class="input-wrap">
+          <span class="pre">@</span>
+          <input class="input input--prefix" id="loginUser" autocomplete="username" autocapitalize="off" spellcheck="false" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="loginKey">Creator-Key</label>
+        <input class="input" id="loginKey" type="password" autocomplete="current-password" spellcheck="false" required>
+      </div>
+      <button class="btn btn--accent btn--block btn--lg" id="loginBtn" type="submit">Einloggen</button>
+      <p class="center small muted" style="margin:18px 0 0">Noch kein Creator? <a class="link" href="creator.html">Jetzt registrieren</a></p>
+    </form>
+
+    <!-- Dashboard -->
+    <div id="dashView" hidden>
+      <div class="dash-head">
+        <div>
+          <h1 id="hello"></h1>
+          <p>Dein Creator-Dashboard</p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><span>Status_Code</span><b class="accent" id="statRate"></b></div>
+        <div class="stat"><span>Inserate</span><b id="statCount">–</b></div>
+        <div class="stat" style="grid-column: span 2" id="statTgWrap"><span>Telegram</span><b id="statTg" class="small" style="font-size:15px"></b></div>
+      </div>
+
+      <!-- Stufe 2: Web-Eingabemaske -->
+      <form class="panel" id="productForm" novalidate>
+        <h2>Neues Produkt inserieren</h2>
+        <p class="lead">Lieber über die Website statt Telegram? Einfach die drei Felder ausfüllen – das Produkt landet direkt im Schaufenster.</p>
+        <div class="alert alert--error" id="productError" role="alert" hidden></div>
+
+        <div class="field">
+          <label for="shopLink">TikTok Shop Produkt-Link</label>
+          <input class="input" id="shopLink" type="url" inputmode="url" placeholder="https://vm.tiktok.com/…" autocomplete="off" required>
+        </div>
+        <div class="field">
+          <label for="price">Einkaufspreis</label>
+          <div class="input-wrap">
+            <input class="input input--suffix" id="price" type="text" inputmode="decimal" placeholder="z. B. 27.90" autocomplete="off" required>
+            <span class="suf">€</span>
+          </div>
+          <p class="hint">Nur die Zahl eingeben.</p>
+        </div>
+        <div class="field">
+          <label for="videoLink">Dein TikTok-Video-Link</label>
+          <input class="input" id="videoLink" type="url" inputmode="url" placeholder="https://www.tiktok.com/@…/video/…" autocomplete="off" required>
+        </div>
+
+        <details class="optional">
+          <summary>Optional: Produktname &amp; Kategorie</summary>
+          <div class="field">
+            <label for="pName">Produktname</label>
+            <input class="input" id="pName" maxlength="120" placeholder="z. B. Medicube Booster Pro">
+          </div>
+          <div class="field">
+            <label for="pCat">Kategorie</label>
+            <select class="select input" id="pCat">
+              <option value="">Bitte wählen</option>
+              <option>Tech</option><option>Beauty</option><option>Haushalt</option><option>Sonstiges</option>
+            </select>
+          </div>
+        </details>
+
+        <div class="auto-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+          <span>Deine User_ID <b id="noteUser"></b> und dein Status_Code <b id="noteRate"></b> werden automatisch eingetragen. Der Schnäppchenpreis wird sofort im Google Sheet berechnet.</span>
+        </div>
+
+        <button class="btn btn--accent btn--block btn--lg" id="productBtn" type="submit">Produkt inserieren</button>
+        <div class="result-card" id="result" hidden></div>
+      </form>
+
+      <!-- Telegram-Profil -->
+      <form class="panel" id="profileForm" novalidate>
+        <h2>Telegram-Kontakt</h2>
+        <p class="lead">Käufer werden über „Jetzt kaufen“ direkt in deinen privaten Telegram-Chat geleitet.</p>
+        <div class="alert" id="profileMsg" role="status" hidden></div>
+        <div class="field">
+          <label for="tgUser">Dein Telegram-Username</label>
+          <div class="input-wrap">
+            <span class="pre">@</span>
+            <input class="input input--prefix" id="tgUser" autocapitalize="off" spellcheck="false" placeholder="deinname">
+          </div>
+        </div>
+        <div class="actions" style="margin-top:0">
+          <button class="btn" type="submit" id="profileBtn">Speichern</button>
+          <a class="btn btn--video" id="botLink" target="_blank" rel="noopener noreferrer">Bot verbinden</a>
+        </div>
+      </form>
+
+      <section class="panel">
+        <h2>Deine Inserate</h2>
+        <p class="lead">Live aus dem Schaufenster.</p>
+        <ul class="mini-list" id="myList"><li class="muted">Wird geladen …</li></ul>
+      </section>
+    </div>
+  </main>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

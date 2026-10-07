@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>TTS Deals – Wie neu. Unschlagbar günstig.</title>
+  <meta name="description" content="Produkte, die TikTok-Shop-Creator nur einmal für ein Testvideo ausgepackt haben – mit Video-Nachweis, direkt vom Creator.">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="demo-banner" id="demoBanner" hidden>Demo-Modus: Beispieldaten, noch nicht mit dem Google Sheet verbunden.</div>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="logo" href="./" aria-label="TTS Deals Startseite"><span class="logo__mark">TTS</span>Deals</a>
+      <a class="btn btn--accent btn--sm" href="creator.html">Als Creator registrieren</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <span class="eyebrow">Creator-Outlet</span>
+      <h1>Wie neu. <em>Unschlagbar</em> günstig.</h1>
+      <p>Produkte, die TikTok-Shop-Creator nur einmal für ein Testvideo ausgepackt haben. Jedes Angebot mit Video-Nachweis, direkt vom Creator.</p>
+      <ul class="trust">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Video-Nachweis zu jedem Produkt</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Direkt vom Creator</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Deal per Telegram</li>
+      </ul>
+    </section>
+
+    <section class="wrap" aria-label="Produkte">
+      <div class="toolbar">
+        <label class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="search" type="search" placeholder="Produkt suchen …" aria-label="Produkt suchen" autocomplete="off">
+        </label>
+        <div class="toolbar__row">
+          <div class="chips" id="chips" role="group" aria-label="Kategorien"></div>
+          <select class="select" id="sort" aria-label="Sortierung">
+            <option value="new">Neueste</option>
+            <option value="price-asc">Preis ↑</option>
+            <option value="price-desc">Preis ↓</option>
+            <option value="discount">Rabatt</option>
+          </select>
+        </div>
+      </div>
+      <p class="result-count" id="count" aria-live="polite"></p>
+      <div class="grid" id="grid"></div>
+      <div class="empty" id="empty" hidden>
+        <h3>Keine Produkte gefunden</h3>
+        <p>Probier eine andere Kategorie oder einen anderen Suchbegriff.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span>© <span id="year"></span> TTS Deals</span>
+      <nav class="footer__links">
+        <a href="creator.html">Als Creator registrieren</a>
+        <a href="dashboard.html">Creator-Login</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/shop.js"></script>
+</body>
+</html>
