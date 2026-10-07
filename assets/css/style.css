@@ -20,7 +20,7 @@
   --radius: 16px;
   --radius-sm: 10px;
   --gutter: 16px;
-  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font: 'Onest', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   color-scheme: dark;
 }
 
@@ -65,7 +65,9 @@ button, input, select { font: inherit; color: inherit; }
   border-bottom: 1px solid var(--border);
 }
 .topbar__inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 60px; }
-.logo { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 800; letter-spacing: -0.02em; font-size: 18px; }
+.logo { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; font-size: 15px; }
+.logo__svg { width: 20px; height: 20px; color: var(--accent); flex: none; }
+.logo .logo__tag { text-transform: none; letter-spacing: 0.02em; }
 .logo__mark {
   background: var(--accent); color: var(--accent-ink);
   border-radius: 8px; padding: 3px 7px; font-size: 14px; letter-spacing: 0;

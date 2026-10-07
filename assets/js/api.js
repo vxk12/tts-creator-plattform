@@ -67,14 +67,14 @@
 
   /* ---------- Demo-Modus (nur im Browser gespeichert) ---------- */
   const DEMO_PRODUCTS = [
-    { id: 'demo-1', userId: 'techtina', name: 'Kabellose Noise-Cancelling Earbuds', originalPrice: 79.99, category: 'Tech', rate: 0.3 },
-    { id: 'demo-2', userId: 'glowbylena', name: 'Medicube Booster Pro Gesichtsgerät', originalPrice: 189.0, category: 'Beauty', rate: 0.42 },
-    { id: 'demo-3', userId: 'homehacks.max', name: 'Mini-Heißluftfritteuse 4 L', originalPrice: 64.9, category: 'Haushalt', rate: 0 },
-    { id: 'demo-4', userId: 'techtina', name: 'Magnetische Powerbank 10.000 mAh', originalPrice: 34.99, category: 'Tech', rate: 0.3 },
-    { id: 'demo-5', userId: 'glowbylena', name: 'Snail Mucin Essence 100 ml', originalPrice: 21.5, category: 'Beauty', rate: 0.42 },
-    { id: 'demo-6', userId: 'homehacks.max', name: 'Akku-Milchaufschäumer mit Ständer', originalPrice: 27.0, category: 'Haushalt', rate: 0 },
-    { id: 'demo-7', userId: 'gadgetguru', name: 'LED Sunset-Lampe mit App', originalPrice: 39.9, category: 'Sonstiges', rate: 0.3 },
-    { id: 'demo-8', userId: 'gadgetguru', name: 'Smartwatch Fitness-Tracker', originalPrice: 99.0, category: 'Tech', rate: 0.42 },
+    { id: 'demo-1', userId: 'techtina', name: 'Kabellose In-Ear-Kopfhörer mit Ladecase', originalPrice: 79.99, category: 'Tech', rate: 0.3, image: 'assets/img/p-earbuds.webp' },
+    { id: 'demo-2', userId: 'glowbylena', name: 'Gesichtsmassagegerät mit Mikrostrom', originalPrice: 189.0, category: 'Beauty', rate: 0.42, image: 'assets/img/p-beauty-device.webp' },
+    { id: 'demo-3', userId: 'homehacks.max', name: 'Tragbarer Akku-Mixer to go', originalPrice: 34.9, category: 'Haushalt', rate: 0, image: 'assets/img/p-mixer.webp' },
+    { id: 'demo-4', userId: 'techtina', name: 'Powerbank 10.000 mAh mit USB-C', originalPrice: 34.99, category: 'Tech', rate: 0.3, image: 'assets/img/p-powerbank.webp' },
+    { id: 'demo-5', userId: 'glowbylena', name: 'Gesichtsserum 3er-Set', originalPrice: 39.5, category: 'Beauty', rate: 0.42, image: 'assets/img/p-serum.webp' },
+    { id: 'demo-6', userId: 'glowbylena', name: 'Make-up Starter-Set mit Lidschatten-Palette', originalPrice: 49.0, category: 'Beauty', rate: 0.3, image: 'assets/img/p-makeup.webp' },
+    { id: 'demo-7', userId: 'gadgetguru', name: 'Smartwatch mit AMOLED-Display', originalPrice: 99.0, category: 'Tech', rate: 0.42, image: 'assets/img/p-watch.webp' },
+    { id: 'demo-8', userId: 'gadgetguru', name: 'Schreibtisch-Set mit kabellosem Ladepad', originalPrice: 59.0, category: 'Sonstiges', rate: 0.3, image: 'assets/img/cat-sonstiges.webp' },
   ].map((p) => ({ ...p, price: salePrice(p.originalPrice, p.rate), videoLink: 'https://www.tiktok.com/', telegram: '' }));
 
   const demo = {

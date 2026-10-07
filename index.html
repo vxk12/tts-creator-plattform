@@ -3,46 +3,141 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>TTS Deals – Wie neu. Unschlagbar günstig.</title>
-  <meta name="description" content="Produkte, die TikTok-Shop-Creator nur einmal für ein Testvideo ausgepackt haben – mit Video-Nachweis, direkt vom Creator.">
-  <meta name="theme-color" content="#0a0a0b">
+  <title>TTS Deals – Fast wie neu. Clever gespart.</title>
+  <meta name="description" content="Produkte, die TikTok Shop Creator nur einmal für ein Testvideo ausgepackt haben – mit Video-Nachweis, direkt vom Creator.">
+  <meta name="theme-color" content="#0b0b0d">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/home.css">
+  <script>
+    // Failsafe: falls das Animations-Modul nicht startet, alles sichtbar machen
+    setTimeout(function () { if (!window.__homeReady) document.documentElement.classList.add('no-motion'); }, 5000);
+  </script>
+  <noscript><style>.loader{display:none}.clip>span,.fade-w,[data-spring]{transform:none!important;opacity:1!important}</style></noscript>
+  <script type="importmap">
+  { "imports": { "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.1.18/+esm" } }
+  </script>
 </head>
 <body>
-  <div class="demo-banner" id="demoBanner" hidden>Demo-Modus: Beispieldaten, noch nicht mit dem Google Sheet verbunden.</div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-mark" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5.5"/><path d="M10 8.6v6.8l5.4-3.4z"/></g></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path fill="currentColor" d="M21.9 4.3L18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></g></symbol>
+  </svg>
 
-  <header class="topbar">
-    <div class="wrap topbar__inner">
-      <a class="logo" href="./" aria-label="TTS Deals Startseite"><span class="logo__mark">TTS</span>Deals</a>
-      <a class="btn btn--accent btn--sm" href="creator.html">Als Creator registrieren</a>
-    </div>
-  </header>
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="brand" id="loaderBrand" data-spring><svg class="mark"><use href="#i-mark"/></svg>TTS Deals</div>
+    <div class="loader__track"><div class="loader__fill"></div></div>
+  </div>
+
+  <div class="demo-banner" id="demoBanner" hidden>Demo-Modus · Beispieldaten</div>
 
   <main>
-    <section class="hero wrap">
-      <span class="eyebrow">Creator-Outlet</span>
-      <h1>Wie neu. <em>Unschlagbar</em> günstig.</h1>
-      <p>Produkte, die TikTok-Shop-Creator nur einmal für ein Testvideo ausgepackt haben. Jedes Angebot mit Video-Nachweis, direkt vom Creator.</p>
-      <ul class="trust">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Video-Nachweis zu jedem Produkt</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Direkt vom Creator</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Deal per Telegram</li>
-      </ul>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__plate">
+        <div class="hero__plate-inner" id="heroPlate">
+          <img src="assets/img/hero.webp" alt="Creator filmt ein Testvideo im Studio" fetchpriority="high" loading="eager">
+        </div>
+      </div>
+
+      <header class="header">
+        <nav class="header__nav" aria-label="Hauptnavigation">
+          <a href="#deals">Deals &amp; Kategorien</a>
+          <a href="#ablauf">So funktioniert's</a>
+        </nav>
+        <div class="header__brand">
+          <a class="brand" href="#top" aria-label="TTS Deals – nach oben"><svg class="mark"><use href="#i-mark"/></svg>TTS Deals</a>
+        </div>
+        <div class="header__right">
+          <a class="header__cta" href="creator.html">Als Creator registrieren</a>
+          <button class="burger" id="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+        </div>
+      </header>
+
+      <div class="hero__title-wrap">
+        <h1 class="hero__title" id="heroTitle" data-words="Fast Wie Neu" data-gate>Fast Wie Neu</h1>
+      </div>
+
+      <div class="hero__bottom">
+        <p class="hero__tagline" id="heroTagline" data-lines="Einmal getestet,|clever gespart" data-stagger="110" data-delay="350" data-duration="900" data-gate>Einmal getestet, clever gespart</p>
+
+        <div class="hero__cluster">
+          <div class="slider" id="slider" data-spring>
+            <div class="slider__stage" id="sliderStage"></div>
+            <div class="dots dots--light" id="sliderDots" role="group" aria-label="Deal-Vorschau"></div>
+          </div>
+
+          <article class="member glass" id="member" data-spring>
+            <div class="member__col">
+              <b class="member__value" id="avgSave">–</b>
+              <div class="member__dots" aria-hidden="true"><i style="background:#00ff66"></i><i style="background:#ffffff"></i><i style="background:#3a3a40"></i><i style="background:#9a9aa3"></i></div>
+              <span class="member__cap">Ø unter Originalpreis</span>
+            </div>
+            <img src="assets/img/unbox.webp" alt="Frisch ausgepacktes Produkt im Karton" loading="lazy">
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section class="wrap" aria-label="Produkte">
+    <!-- TRUST -->
+    <section class="trust" id="trust" aria-labelledby="trust-title">
+      <div class="trust__top">
+        <div class="pct" data-spring id="pct"><b>1x</b><span>Ausgepackt – nur fürs Testvideo</span></div>
+        <article class="badge-card" data-spring id="badgeCard">
+          <span class="badge-card__idx">#01</span>
+          <div>
+            <h3>Direkt vom Creator</h3>
+            <p>Jedes Produkt stammt von einem TikTok Shop Creator und wurde nur einmal für ein Testvideo ausgepackt. Das Video siehst du, bevor du kaufst.</p>
+          </div>
+        </article>
+      </div>
+
+      <h2 class="ghost" id="trust-title" aria-label="Einmal gefilmt, fast neu">
+        <span class="ghost__row"><span class="clip ghost__w" data-gw="0"><span></span></span><span class="clip ghost__w" data-gw="1"><span></span></span></span>
+        <span class="ghost__row"><span class="clip ghost__w is-ink" data-gw="2"><span></span></span><span class="clip ghost__w" data-gw="3"><span></span></span></span>
+      </h2>
+
+      <div class="coach">
+        <div id="coach" data-spring><figure>
+          <img id="coachImg" src="assets/img/cat-tech.webp" alt="" loading="lazy">
+          <figcaption class="cap"><b id="coachName">Tech</b><span id="coachRole"></span></figcaption>
+        </figure></div>
+      </div>
+
+      <div class="trust__controls">
+        <button class="arrow-btn" id="trustPrev" type="button" aria-label="Vorherige Kategorie"><span class="hv"><span class="flip"><svg><use href="#i-arrow"/></svg></span></span></button>
+        <div class="dots" id="trustDots" role="group" aria-label="Kategorien"></div>
+        <button class="arrow-btn arrow-btn--solid" id="trustNext" type="button" aria-label="Nächste Kategorie"><span class="hv"><svg><use href="#i-arrow"/></svg></span></button>
+      </div>
+    </section>
+
+    <!-- DEALS -->
+    <section class="deals" id="deals" aria-labelledby="deals-title">
+      <div class="deals__head">
+        <div>
+          <span class="eyebrow eyebrow--light">Live-Deals</span>
+          <h2 class="h-stack" id="deals-title" data-lines="Frisch|ausgepackt">Frisch ausgepackt</h2>
+        </div>
+        <p class="deals__count" id="count" aria-live="polite"></p>
+      </div>
+
       <div class="toolbar">
-        <label class="search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-          <input id="search" type="search" placeholder="Produkt suchen …" aria-label="Produkt suchen" autocomplete="off">
-        </label>
-        <div class="toolbar__row">
-          <div class="chips" id="chips" role="group" aria-label="Kategorien"></div>
-          <select class="select" id="sort" aria-label="Sortierung">
+        <div class="chips" id="chips" role="group" aria-label="Kategorien filtern"></div>
+        <div class="tools">
+          <label class="field-pill">
+            <svg><use href="#i-search"/></svg>
+            <input id="search" type="search" placeholder="Produkt suchen" aria-label="Produkt suchen" autocomplete="off">
+          </label>
+          <select class="sort" id="sort" aria-label="Sortierung">
             <option value="new">Neueste</option>
             <option value="price-asc">Preis ↑</option>
             <option value="price-desc">Preis ↓</option>
@@ -50,27 +145,149 @@
           </select>
         </div>
       </div>
-      <p class="result-count" id="count" aria-live="polite"></p>
-      <div class="grid" id="grid"></div>
-      <div class="empty" id="empty" hidden>
-        <h3>Keine Produkte gefunden</h3>
-        <p>Probier eine andere Kategorie oder einen anderen Suchbegriff.</p>
+
+      <ul class="grid" id="grid"></ul>
+      <div class="empty" id="empty" hidden></div>
+    </section>
+
+    <!-- ABLAUF -->
+    <section class="steps" id="ablauf" aria-labelledby="ablauf-title">
+      <span class="eyebrow">So funktioniert's</span>
+      <h2 class="h-stack" id="ablauf-title" data-lines="In vier Schritten|zum Deal">In vier Schritten zum Deal</h2>
+      <ul>
+        <li><a href="#deals"><div class="row" data-spring><span class="row__idx">01</span><div class="row__txt"><h3 class="row__name">Deal entdecken</h3><p class="row__desc">Stöbere durch Produkte, die Creator nur einmal für ein Video ausgepackt haben.</p></div><span class="row__arrow"><span><svg><use href="#i-arrow"/></svg></span></span></div></a></li>
+        <li><a href="#deals"><div class="row" data-spring><span class="row__idx">02</span><div class="row__txt"><h3 class="row__name">Video-Nachweis ansehen</h3><p class="row__desc">Jedes Angebot verlinkt das echte TikTok-Testvideo – du siehst den Zustand vorher.</p></div><span class="row__arrow"><span><svg><use href="#i-arrow"/></svg></span></span></div></a></li>
+        <li><a href="#faq"><div class="row" data-spring><span class="row__idx">03</span><div class="row__txt"><h3 class="row__name">Creator anschreiben</h3><p class="row__desc">Mit „Jetzt kaufen“ landest du direkt im privaten Telegram-Chat des Creators.</p></div><span class="row__arrow"><span><svg><use href="#i-arrow"/></svg></span></span></div></a></li>
+        <li><a href="#deals"><div class="row" data-spring><span class="row__idx">04</span><div class="row__txt"><h3 class="row__name">Clever sparen</h3><p class="row__desc">Du zahlst deutlich weniger als den Originalpreis im TikTok Shop.</p></div><span class="row__arrow"><span><svg><use href="#i-arrow"/></svg></span></span></div></a></li>
+      </ul>
+    </section>
+
+    <!-- FÜR CREATOR -->
+    <section class="creators" id="creator" aria-labelledby="creator-title">
+      <div class="creators__grid">
+        <div class="creators__intro">
+          <img class="creators__icon" id="creatorIcon" data-spring src="assets/img/unbox-hands.webp" alt="Hände halten ein ausgepacktes Produkt" loading="lazy">
+          <h2 class="h-stack" id="creator-title" data-lines="Verkauf|deine|Testprodukte">Verkauf deine Testprodukte</h2>
+          <p class="creators__body" id="creatorBody" data-fade-words>Du bist offizieller TikTok Shop Creator? Stell Produkte aus deinen Testvideos in Sekunden ein – per Telegram-Bot oder direkt im Web-Dashboard. Den Preis berechnen wir automatisch.</p>
+          <div class="creators__ctas">
+            <a class="pill pill--solid" href="creator.html">Als Creator registrieren <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+            <a class="link-u" href="dashboard.html">Creator-Login</a>
+          </div>
+        </div>
+        <div class="tiles">
+          <figure data-spring>
+            <div class="tile">
+              <img src="assets/img/creator-live.webp" alt="Smartphone auf Stativ filmt einen Creator" loading="lazy">
+              <figcaption class="cap"><b>Per Telegram</b><span>Produkt im Chat an unseren Bot schicken – fertig.</span></figcaption>
+            </div>
+          </figure>
+          <figure data-spring>
+            <div class="tile tile--green">
+              <img src="assets/img/creator-home.webp" alt="Creatorin filmt sich zu Hause" loading="lazy">
+              <figcaption class="cap"><b>Per Web-Dashboard</b><span>Shop-Link, Einkaufspreis und Video-Link eintragen.</span></figcaption>
+            </div>
+          </figure>
+        </div>
       </div>
     </section>
+
+    <!-- ZAHLEN -->
+    <section class="stats" aria-labelledby="stats-title">
+      <span class="eyebrow eyebrow--light">In Zahlen</span>
+      <h2 class="h-stack" id="stats-title" data-lines="Live aus dem|Schaufenster">Live aus dem Schaufenster</h2>
+      <dl>
+        <div class="stat" data-spring><dt class="sr-only">Live-Deals</dt><dd><div class="stat__v" data-stat="deals">–</div><div class="stat__l">Live-Deals</div></dd></div>
+        <div class="stat" data-spring><dt class="sr-only">Aktive Creator</dt><dd><div class="stat__v" data-stat="creators">–</div><div class="stat__l">Aktive Creator</div></dd></div>
+        <div class="stat" data-spring><dt class="sr-only">Durchschnittliche Ersparnis</dt><dd><div class="stat__v" data-stat="avg">–</div><div class="stat__l">Ø Ersparnis zum Originalpreis</div></dd></div>
+        <div class="stat" data-spring><dt class="sr-only">Mit Video-Nachweis</dt><dd><div class="stat__v" data-stat="video">–</div><div class="stat__l">Mit Video-Nachweis</div></dd></div>
+      </dl>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <span class="eyebrow">Gut zu wissen</span>
+      <h2 class="h-stack" id="faq-title" data-lines="Kurz|erklärt">Kurz erklärt</h2>
+      <ul>
+        <li data-spring><article class="qa" data-lift><div><span class="qa__glyph" aria-hidden="true">?</span><h3>Sind die Produkte wirklich wie neu?</h3><p>Ja. Jedes Produkt wurde nur einmal für ein TikTok-Testvideo ausgepackt. Das Video verlinken wir direkt am Angebot.</p></div><footer><b>Zustand</b><span>Video-Nachweis am Deal</span></footer></article></li>
+        <li data-spring><article class="qa" data-lift><div><span class="qa__glyph" aria-hidden="true">?</span><h3>Wie läuft der Kauf ab?</h3><p>Über „Jetzt kaufen“ landest du im privaten Telegram-Chat des Creators. Bezahlung und Versand klärt ihr direkt miteinander.</p></div><footer><b>Kauf</b><span>Direkt per Telegram</span></footer></article></li>
+        <li data-spring><article class="qa" data-lift><div><span class="qa__glyph" aria-hidden="true">?</span><h3>Wer verkauft hier?</h3><p>Die Plattform ist ausschließlich für offizielle TikTok Shop Creator. Ohne Shop-Creator-Status ist keine Registrierung möglich.</p></div><footer><b>Verkäufer</b><span>Nur TikTok Shop Creator</span></footer></article></li>
+      </ul>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="kontakt">
+      <div class="footer__cta">
+        <div>
+          <span class="eyebrow eyebrow--light">Für Creator</span>
+          <p class="footer__big" data-lines="Bereit zu|verkaufen?">Bereit zu verkaufen?</p>
+        </div>
+        <a class="pill pill--light" id="footerCta" data-spring href="creator.html">Als Creator registrieren <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+      </div>
+
+      <div class="footer__cols">
+        <div class="footer__brand">
+          <span class="brand"><svg class="mark"><use href="#i-mark"/></svg>TTS Deals</span>
+          <p>Das Outlet für Produkte, die TikTok Shop Creator nur einmal für ein Testvideo ausgepackt haben.</p>
+        </div>
+        <nav aria-label="Shop">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="#deals" data-cat="Alle">Alle Deals</a></li>
+            <li><a href="#deals" data-cat="Tech">Tech</a></li>
+            <li><a href="#deals" data-cat="Beauty">Beauty</a></li>
+            <li><a href="#deals" data-cat="Haushalt">Haushalt</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Creator">
+          <h4>Creator</h4>
+          <ul>
+            <li><a href="creator.html">Registrieren</a></li>
+            <li><a href="dashboard.html">Creator-Login</a></li>
+            <li><a href="#" id="botLink" target="_blank" rel="noopener noreferrer">Telegram-Bot</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Info">
+          <h4>Info</h4>
+          <ul>
+            <li><a href="#ablauf">So funktioniert's</a></li>
+            <li><a href="#creator">Für Creator</a></li>
+            <li><a href="#faq">Häufige Fragen</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bar">
+        <span>© 2026 TTS Deals. Alle Rechte vorbehalten.</span>
+        <nav aria-label="Rechtliches"><a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Fotos: Unsplash</a></nav>
+      </div>
+    </footer>
   </main>
 
-  <footer class="footer">
-    <div class="wrap footer__inner">
-      <span>© <span id="year"></span> TTS Deals</span>
-      <nav class="footer__links">
-        <a href="creator.html">Als Creator registrieren</a>
-        <a href="dashboard.html">Creator-Login</a>
-      </nav>
+  <!-- MENÜ -->
+  <div class="menu" id="menu" aria-hidden="true" inert>
+    <div class="menu__bg" id="menuBg"></div>
+    <div class="menu__panel" id="menuPanel" role="dialog" aria-modal="true" aria-label="Menü">
+      <div class="menu__inner">
+        <div class="menu__top">
+          <span class="brand"><svg class="mark"><use href="#i-mark"/></svg>TTS Deals</span>
+          <button class="x-btn" id="menuClose" type="button" aria-label="Menü schließen"><span><svg><use href="#i-x"/></svg></span></button>
+        </div>
+        <nav class="menu__nav" aria-label="Menü">
+          <a href="#deals">Deals</a>
+          <a href="#ablauf">So geht's</a>
+          <a href="#creator">Für Creator</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div class="menu__bottom">
+          <a class="pill pill--light" href="creator.html">Als Creator registrieren <span class="arr"><svg><use href="#i-arrow"/></svg></span></a>
+          <nav aria-label="Creator"><a href="dashboard.html">Creator-Login</a></nav>
+        </div>
+      </div>
     </div>
-  </footer>
+  </div>
 
   <script src="assets/js/config.js"></script>
   <script src="assets/js/api.js"></script>
-  <script src="assets/js/shop.js"></script>
+  <script type="module" src="assets/js/home.js"></script>
 </body>
 </html>

@@ -1,10 +1,10 @@
 # TTS Creator-Plattform
 
-Mobile-first Web-App im Dark Mode (Akzent `#00FF66`) mit zwei getrennten Bereichen:
+Mobile-first Web-App (Deep Black + Neon-Grün `#00FF66`, Font Onest) mit zwei getrennten Bereichen. Die Startseite ist im Editorial-Stil gebaut: Intro-Loader, Parallax-Hero, Clip-Masken-Text-Reveals, Spring-Animationen und Smooth Scroll (Lenis).
 
 | Bereich | Datei | Zweck |
 |---|---|---|
-| **A – Schaufenster (B2C)** | `index.html` | Öffentliche Startseite. Filterbares Produkt-Grid, live aus dem Google Sheet. |
+| **A – Schaufenster (B2C)** | `index.html` | Öffentliche Startseite: Hero, Kategorien-Karussell, filterbares Produkt-Grid (live aus dem Google Sheet), Ablauf, Creator-Teaser, Live-Kennzahlen, FAQ. |
 | **B – Creator-Onboarding (B2B)** | `creator.html` | Stufe 1: Einmalige Registrierung (nur über „Als Creator registrieren“ erreichbar). |
 | **B – Creator-Dashboard** | `dashboard.html` | Stufe 2: Optionale Web-Eingabemaske für neue Produkte. |
 
@@ -111,14 +111,18 @@ Login mit Username + Creator-Key. Die Maske hat drei Felder: Shop-Link (E), Eink
 ## Projektstruktur
 
 ```
-index.html            Schaufenster (B2C)
+index.html            Schaufenster (B2C) – Startseite
 creator.html          Onboarding (B2B, Stufe 1)
 dashboard.html        Creator-Dashboard (B2B, Stufe 2)
-assets/css/style.css  Design-System (Dark Mode, Mobile-First)
+assets/css/home.css   Design der Startseite (rem-basiert, adaptiv skaliert)
+assets/css/style.css  Design von Onboarding + Dashboard
 assets/js/config.js   API-URL + Telegram-Bot
 assets/js/api.js      API-Anbindung, Demo-Modus, Helfer
-assets/js/shop.js     Produkt-Grid, Filter, Suche, Sortierung
+assets/js/home.js     Startseite: Loader, Lenis, Spring-Animationen, Karussells, Deals
 assets/js/onboarding.js
 assets/js/dashboard.js
+assets/img/           Bilder (Unsplash-Lizenz) + Favicon
 backend/Code.gs       Google Apps Script (API zum Google Sheet)
 ```
+
+Die Kennzahlen auf der Startseite (Live-Deals, aktive Creator, Ø Ersparnis, Anteil mit Video-Nachweis) werden live aus den Produktdaten berechnet. Produktbilder kommen aus dem TikTok-Video (Vorschaubild); fehlt es, wird ein Kategorie-Bild angezeigt.
